@@ -3,7 +3,6 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Lato', sans-serif;
-
 }
 
 header {
@@ -54,9 +53,6 @@ input {
 }
 
 /* Buttons */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
-
-/* General Buttons */
 button {
   width: 130px;
   height: 40px;

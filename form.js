@@ -1,3 +1,5 @@
+// Imported Variables: CHAMPS_JSON, API
+var spellData;
 var keys = ["Q", "W", "E", "R"];
 var newGame = false;
 
@@ -12,23 +14,22 @@ function sendRequest(onload, url) {
 
 // API request function
 function getData() {
-	sendRequest(returnSpells, api);
+	sendRequest(returnSpells, API);
 }
 
 // Add options to textfield input
 function addChampsToField(datalist){
-  for (var key in champs_json.data) {
-      if (champs_json.data.hasOwnProperty(key)) {
+  for (var key in CHAMPS_JSON.data) {
+      if (CHAMPS_JSON.data.hasOwnProperty(key)) {
         var curr_key = key;
         var opt = document.createElement("OPTION");
         opt.innerHTML = curr_key;
-
         datalist.appendChild(opt);
       }
   }
 }
 
-// Add textfields for champion name input
+// Add textfields for champion name input (Button OnClick)
 function addFields(){
   var container = document.getElementById("container");
   var numOfPlayers = 10;
@@ -63,6 +64,7 @@ function addFields(){
   }
 }
 
+// Get ability information (Button OnClick)
 function getNames() {
   var champsList = document.getElementsByClassName("champInput");
   var results = document.getElementById("results");
@@ -73,15 +75,12 @@ function getNames() {
     for(var j=0; j<4; j++) {
       curr_spells.push(spellData.data[curr_champ].spells[j].name);
     }
-
     var champBox = document.createElement("DIV");
     var champImg = document.createElement("IMG");
     var champName = document.createElement("H1");
-
     champBox.setAttribute("id", "champ");
     champName.innerHTML = curr_champ;
     champImg.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + curr_champ + "_0.jpg");
-
     champBox.appendChild(champImg);
     champBox.appendChild(champName);
 
@@ -90,14 +89,12 @@ function getNames() {
       spell.innerHTML = keys[k] + ": " + curr_spells[k];
       champBox.appendChild(spell);
     }
-
     results.appendChild(champBox);
 	}
 }
 
 function returnSpells() {
   spellData = JSON.parse(this.responseText);
-
 	// Enable button after complete spell retrieval
 	document.getElementById("submit").disabled = false;
 }
