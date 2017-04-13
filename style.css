@@ -27,14 +27,13 @@ input {
 }
 
 #results {
-	width: 80%;
+	width: 95%;
 	margin: 25px auto;
 }
 
 #champ {
 	background-color: white;
-	width: calc(20% - 40px);
-	/*padding: 0 15px;*/
+	width: calc(20% - 10px);
 	margin: 5px;
 	display: inline-block;
 }
@@ -68,7 +67,6 @@ button {
   border-bottom: 4px solid #e03e3c;
   color: #fbfbfb;
   font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
   text-shadow: 1px 1px 1px rgba(0,0,0,.4);
   font-size: 15px;
   text-align: left;
@@ -76,6 +74,7 @@ button {
   box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
   cursor: pointer;
 }
+
 button:active {
   box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
   top: 1px;
@@ -97,36 +96,11 @@ button:after {
   border-radius: 0 5px 5px 0;
 }
 
-/* Button pointing left */
-
-button.back {
-  text-align: right;
-  padding-right: 12px;
-  box-sizing: border-box;
-}
-button.back:after {
-  content: "";
-  width: 0;
-  height: 0;
-  display: block;
-  border-top: 20px solid #187dbc;
-  border-bottom: 20px solid #187dbc;
-  border-right: 16px solid transparent;
-  border-left: 20px solid #187dbc;
-  position: absolute;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
-  border-radius: 5px 0 0 5px;
+button:disabled {
+	background-color: darkgray;
+	border-bottom-color: gray;
 }
 
-/* Single buttons */
-
-button.site {
-  width: 40px;
-  text-align: center;
-  text-indent: 0;
-}
-button.site:after{
-  display: none;
+button:disabled::after {
+	border-color: black;
 }
